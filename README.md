@@ -1,4 +1,4 @@
-# Harbormaster Node.js CLI
+# Harbormaster Command Line Interface
 
 A Node.js command line interface (CLI) to interact with an instance of the Harbormaster Platform.
 
