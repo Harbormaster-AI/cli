@@ -8,3 +8,9 @@ Whether creating a new app from scratch, or migrating an existing one, use Harbo
 
 Follow this [link](https://harbormaster.ai/harbormaster-install/) for instructions on using the CLI
 
+## Find Us
+
+* [http://harbormaster.ai](http://harbormaster.ai)
+* [On GitHub](https://github.com/Harbormaster-AI)
+
+
