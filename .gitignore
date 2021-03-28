@@ -1,0 +1,13 @@
+node_modules/
+.svn/
+.project
+*.bat
+samples/yamls/project.as.code/*.yml
+samples/yamls/backup/*.yml
+samples/codesandbox/
+samples/account.json
+samples/Dockerfile
+samples/entrypoint.sh
+samples/main.tf
+
+

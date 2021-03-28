@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmi:XMI xmi:version='2.1' xmlns:uml='http://schema.omg.org/spec/UML/2.1.2'
+	xmlns:xmi='http://schema.omg.org/spec/XMI/2.1'>
+	<uml:Model xmi:id='eee_1045467100313_135436_1' name='Data' visibility='public'>
+		<packagedElement xmi:type='uml:Class' xmi:id='_477' name='Car' visibility='public'>
+			<interfaceRealization xmi:id="_rJlwAFXXEd6twtlceDDy2A" supplier="_4YTUYFXUEd67zdnPfc5P6w" client="_477" contract="_4YTUYFXUEd67zdnPfc5P6w"/>
+			<ownedAttribute xmi:type='uml:Property' xmi:id='_628' name='owner'
+				visibility='private' type='_498' association='_627'>
+				<upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_680' visibility='public' value='1'/>
+				<lowerValue xmi:type='uml:LiteralInteger' xmi:id='_679' visibility='public' value='1'/>
+			</ownedAttribute>
+			<ownedAttribute xmi:type='uml:Property' xmi:id='_681' name='manufacturer' visibility='private'>
+				<type xmi:type='uml:PrimitiveType' href='http://schema.omg.org/spec/UML/2.0/uml.xml#String'/>
+			</ownedAttribute>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Class" xmi:id="_1ci0MFQvEd6_Wcl6sBLfgw" name="Person"/>
+		<packagedElement xmi:type='uml:Class' xmi:id='_498' name='Owner' visibility='public'>
+			<generalization xmi:id="_6hsJEFQvEd6_Wcl6sBLfgw" general="_1ci0MFQvEd6_Wcl6sBLfgw"/>
+			<interfaceRealization xmi:id="_rJlwAFXXEd6twtlceDDy2A" supplier="_4YTUYFXUEd67zdnPfc5P6w" client="_498" contract="_4YTUYFXUEd67zdnPfc5P6w"/>
+			<ownedAttribute xmi:type='uml:Property' xmi:id='_629' name='ownedCars'
+				visibility='private' type='_477' association='_627'>
+				<upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_678' visibility='public' value='-1'/>
+				<lowerValue xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_677' visibility='public' value='-1'/>
+			</ownedAttribute>
+			<ownedAttribute xmi:type='uml:Property' xmi:id='_685' name='name' visibility='private'>
+				<type xmi:type='uml:PrimitiveType' href='http://schema.omg.org/spec/UML/2.0/uml.xml#String'/>
+			</ownedAttribute>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Association' xmi:id='_627' visibility='public'>
+			<memberEnd xmi:idref='_628'/>
+			<memberEnd xmi:idref='_629'/>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Interface" xmi:id="_4YTUYFXUEd67zdnPfc5P6w" name="QuoteInf"/>
+		<packagedElement xmi:type="uml:Enumeration" xmi:id="_7GUWkFQjEd6_Wcl6sBLfgw" name="VisibilityKind">
+			<ownedLiteral xmi:id="__avZIFQjEd6_Wcl6sBLfgw" name="__public"/>
+			<ownedLiteral xmi:id="_AYurYFQkEd6_Wcl6sBLfgw" name="__private"/>
+			<ownedLiteral xmi:id="_A3lKkFQkEd6_Wcl6sBLfgw" name="__protected"/>
+			<ownedLiteral xmi:id="_BomX0FQkEd6_Wcl6sBLfgw" name="__package"/>
+		</packagedElement>		
+	</uml:Model>
+</xmi:XMI>

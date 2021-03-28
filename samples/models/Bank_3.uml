@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_HJ0ewHxvEeOpP-PjhVelzQ" name="Bank">
+  <packagedElement xmi:type="uml:Package" xmi:id="_lZw_cHyAEeOS74OIN395aA" name="bs">
+    <packagedElement xmi:type="uml:Class" xmi:id="_qv-PIHyAEeOS74OIN395aA" name="Account">
+      <ownedAttribute xmi:id="_-xI3YHyAEeOS74OIN395aA" name="id" type="__EEsKn-OEeO47f7pJZDqVw"/>
+      <ownedAttribute xmi:id="_D1m20HyBEeOS74OIN395aA" name="amount" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      <ownedAttribute xmi:id="_ZPoIYHyBEeOS74OIN395aA" name="limit" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      <ownedOperation xmi:id="_idK2AHyBEeOS74OIN395aA" name="Account">
+        <ownedParameter xmi:id="_lkF1UH-PEeO38f7pJZDqVw" name="i" type="__EEsKn-OEeO47f7pJZDqVw"/>
+        <ownedParameter xmi:id="_m38C0H-PEeO38f7pJZDqVw" name="m" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_zkKWsHyCEeOS74OIN395aA" name="deposit">
+        <ownedParameter xmi:id="_vMbokH-PEeO38f7pJZDqVw" name="amount" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_12jQEHyCEeOS74OIN395aA" name="getAmount">
+        <ownedParameter xmi:id="_iG78gH-QEeO38f7pJZDqVw" type="__EEsJH-OEeO41f7pJZDqVw" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_3-WDAHyCEeOS74OIN395aA" name="withdrawWithLimit">
+        <ownedParameter xmi:id="_6y11kH-QEeO38f7pJZDqVw" name="amount" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_5-ze4HyCEeOS74OIN395aA" name="getLimit">
+        <ownedParameter xmi:id="_DVBSAH-REeO38f7pJZDqVw" name="" type="__EEsJH-OEeO41f7pJZDqVw" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_9133EHyCEeOS74OIN395aA" name="setLimit">
+        <ownedParameter xmi:id="_NrUXcH-REeO38f7pJZDqVw" name="l" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_tzN9sHyAEeOS74OIN395aA" name="Bank">
+      <ownedAttribute xmi:id="_IYwnAHyDEeOS74OIN395aA" name="accounts" type="_qv-PIHyAEeOS74OIN395aA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N4Sx0HyDEeOS74OIN395aA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NV7EkHyDEeOS74OIN395aA" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_QSzsMH-TEeO38f7pJZDqVw" name="cons" type="_Asxn8H-SEeO38f7pJZDqVw"/>
+      <ownedOperation xmi:id="_aWleQH-TEeO38f7pJZDqVw" name="Bank">
+        <ownedParameter xmi:id="_dTdfEH-TEeO38f7pJZDqVw" name="c" type="_Asxn8H-SEeO38f7pJZDqVw"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_bPQy8HyDEeOS74OIN395aA" name="depositOnAccount">
+        <ownedParameter xmi:id="_i7L8kH-TEeO38f7pJZDqVw" name="id" type="__EEsKn-OEeO47f7pJZDqVw"/>
+        <ownedParameter xmi:id="_mMsJkH-TEeO38f7pJZDqVw" name="amount" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_e0EWcHyDEeOS74OIN395aA" name="withdrawFromAccount">
+        <ownedParameter xmi:id="_H61pwH-VEeO38f7pJZDqVw" name="id" type="__EEsKn-OEeO47f7pJZDqVw"/>
+        <ownedParameter xmi:id="_LrnMsH-VEeO38f7pJZDqVw" name="amount" type="__EEsJH-OEeO41f7pJZDqVw"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_wODBYHyAEeOS74OIN395aA" name="Client">
+      <ownedAttribute xmi:id="_r0NL8HyDEeOS74OIN395aA" name="id" type="__EEsKn-OEeO47f7pJZDqVw"/>
+      <ownedAttribute xmi:id="_tlfjYHyDEeOS74OIN395aA" name="name" type="__EEsKn-OEeO47f7pJZDqVw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Asxn8H-SEeO38f7pJZDqVw" name="Consortium"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="__EEsIH-OEeO37f7pJZDqVw" name="Common Java datatypes">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsIX-OEeO38f7pJZDqVw" name="int"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsIn-OEeO39f7pJZDqVw" name="long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsI3-OEeO40f7pJZDqVw" name="float"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsJH-OEeO41f7pJZDqVw" name="double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsJX-OEeO42f7pJZDqVw" name="boolean"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsJn-OEeO43f7pJZDqVw" name="void"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsJ3-OEeO44f7pJZDqVw" name="char"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsKH-OEeO45f7pJZDqVw" name="short"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsKX-OEeO46f7pJZDqVw" name="byte"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__EEsKn-OEeO47f7pJZDqVw" name="string"/>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,78 @@
+gitParams:
+    - name:          git_test_ASPNETCore
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    ASPNETCore
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_LambdaNoSQL
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    LambdaNoSQL
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_Lambda
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    Lambda
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_Angular7MongoDB
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    Angular7MongoDB
+      tag:           latest
+      host:          gitlab.com # gitlab.com
+
+    - name:          git_test_Django
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    Django
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_GoogleFunctions
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    GoogleFunctions
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_SparkMicroWeb
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    SparkMicroWeb
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_SpringCore
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    SpringCore
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_SpringMongoDB
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    SpringMongoDB
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_Strut2NoSQL
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    Strut2NoSQL
+      tag:           latest
+      host:          gitlab.com
+
+    - name:          git_test_Struts2
+      username:      complexmathguy
+      password:      6969Cutlass!!
+      repository:    Struts2
+      tag:           latest
+      host:          gitlab.com
+

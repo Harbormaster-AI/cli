@@ -1,0 +1,47 @@
+{"terraform":
+[{"name":"inUse","value":"true"},
+{"name":"provider","value":"aws"},
+{"name":"region","value":"us-east-1"},
+{"name":"db-engine","value":"mysql"},
+{"name":"db-version","value":"8.0.15"}],
+"aws":
+[{"name":"inUse","value":"true"},
+{"name":"vpc","value":"vpc-c422e2a0"},
+{"name":"ec2-instance-type","value":"t2.medium"},
+{"name":"access-key","value":"ASSIGN_AS_ENV_VAR_WITH_CI_PROVIDER"},
+{"name":"secret-key","value":"ASSIGN_AS_ENV_VAR_WITH_CI_PROVIDER"}],
+"docker":
+[{"name":"inUse","value":"true"},
+{"name":"userName","value":"tylertravismya"},
+{"name":"password","value":"69cutlass"},
+{"name":"orgName","value":"realmethods"},
+{"name":"repo","value":"springcoredemo"},
+{"name":"tag","value":"latest"}],
+"nexus":
+[{"name":"inUse","value":"rue"},
+{"name":"userName","value":"admin"},
+{"name":"password","value":"letmein2"},
+{"name":"releaseUrl","value":"http://18.235.138.220:8081/repository/maven-releases"},
+{"name":"snapshotUrl","value":"http://18.235.138.220:8081/repository/maven-snapshots"},
+{"name":"mavenRepoUrl","value":"http://18.235.138.220:8081/repository/maven-public/"}],
+"application":
+[{"name":"name","value":"springmongodbdemo"},
+{"name":"description","value":"Spring MongoDB Demo"},
+{"name":"author","value":"dev@realmethods.com","required":""},
+{"name":"corporate logo URL","value":"","required":""},
+{"name":"application logo URL","value":"./img/turnstone.biologics.png","required":""},
+{"name":"company name","value":"Turnstone Biologics"},
+{"name":"version","value":"0.0.1"},
+{"name":"package name","value":"com.occulue"},
+{"name":"cicd_platform","value":"circleci"}],
+"memcached":
+[{"name":"host","value":"127.0.0.1"},
+{"name":"port","value":"11211"}],
+"mongodb":
+[{"name":"server addresses","value":"127.0.0.1:27017"},
+{"name":"database name","value":"springmongodemo"},
+{"name":"credentials","value":""},
+{"name":"search size","value":"10"},
+{"name":"default collection name","value":"default_collection"},
+{"name":"auto-increment id name","value":"_id"},
+{"name":"auto-increment seq name","value":"seq"}]}

@@ -1,0 +1,66 @@
+{
+	"containers":[],
+	"subsystems":[],
+	"components":[],
+	"classes":[
+		{"name":"Alley","parentName":"","packageName":"",
+			"attributes":[
+				{"name":"name","type":"String",
+					"visibility":"protected","primarykey":false,"defaultValue":""}],
+			"associations":[
+				{"name":"Leagues","type":"League","multiplicity":"OneToMany"},
+				{"name":"Tournaments","type":"Tournament","multiplicity":"OneToMany"},
+				{"name":"Lanes","type":"Lane","multiplicity":"OneToMany"}],
+			"methods":[]},
+		{"name":"Game","parentName":"","packageName":"",
+			"attributes":[
+				{"name":"frames","type":"java.lang.Integer",
+					"visibility":"protected","primarykey":false,
+					"defaultValue":"0"}],
+			"associations":[
+				{"name":"Matchup","type":"Matchup","multiplicity":"ManyToOne"},
+				{"name":"Player","type":"Player","multiplicity":"OneToOne"}],
+			"methods":[]},
+		{"name":"Lane","parentName":"","packageName":"",
+			"attributes":[
+				{"name":"number","type":"java.lang.Integer","visibility":"protected","primarykey":false,"defaultValue":"new java.lang.Integer(\"0\")"}],
+			"associations":[],
+			"methods":[]},
+		{"name":"League","parentName":"","packageName":"",
+			"attributes":[
+				{"name":"name","type":"String","visibility":"protected","primarykey":false,"defaultValue":""}],
+			"associations":[
+				{"name":"Players","type":"Player","multiplicity":"OneToMany"}],
+			"methods":[]},
+		{"name":"Matchup","parentName":"","packageName":"",
+				"attributes":[
+					{"name":"name","type":"String","visibility":"protected","primarykey":false,"defaultValue":""}],
+				"associations":[
+					{"name":"Games","type":"Game","multiplicity":"OneToMany"}],
+				"methods":[]},
+		{"name":"Player","parentName":"","packageName":"",
+				"attributes":[
+					{"name":"name","type":"String","visibility":"protected","primarykey":false,"defaultValue":""},
+					{"name":"dateOfBirth","type":"java.util.Date","visibility":"protected","primarykey":false,"defaultValue":""},
+					{"name":"height","type":"java.lang.Double","visibility":"protected","primarykey":false,"defaultValue":"new java.lang.Double(\"0.0\")"},
+					{"name":"isProfessional","type":"java.lang.Boolean","visibility":"protected","primarykey":false,"defaultValue":"new java.lang.Boolean(\"false\")"}],
+				"associations":[],
+				"methods":[]},
+		{"name":"Tournament","parentName":"","packageName":"",
+			"attributes":[
+				{"name":"name","type":"String","visibility":"protected","primarykey":false,"defaultValue":""},
+				{"name":"Type","type":"TournamentType","visibility":"protected","primarykey":false,"defaultValue":"TournamentType.getDefaultValue()"},					{"name":"tournamentId","type":"Long","visibility":"protected","primarykey":true,"defaultValue":"null"}],
+			"associations":[
+				{"name":"Matchups","type":"Matchup","multiplicity":"OneToMany"}],
+			"methods":[]}
+	],
+	"interfaces":[],
+	"services":[],
+	"enums":[
+		{"name":"TournamentType",
+			"attributes":[
+				{"name":"Pro","type":"String","visibility":"protected","primarykey":false,"defaultValue":"\"0\""},
+				{"name":"Amateur","type":"String","visibility":"protected","primarykey":false,"defaultValue":"\"1\""}]
+		}
+	]
+}

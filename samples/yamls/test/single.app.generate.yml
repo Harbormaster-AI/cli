@@ -1,0 +1,10 @@
+apps:
+    - techStackId:       32
+      modelId:            1
+      appOptionsFile:    ./samples/options/Angular7MongoDB.options.json
+      gitParams:
+         entry:          Bitbucket_test_Angular7MongoDB
+         file:           ./samples/git/test.git.yml
+      saveParams:
+         name:           Angular7 v0.0.1
+         description:    Angular7 - MongoDB Test Application Generation
