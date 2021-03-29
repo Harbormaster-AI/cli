@@ -445,8 +445,8 @@ program
 			var resources = JSON.parse(data.result);
 			if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 				const tbl 		= new Table({
-											head: ['id', 'name', 'file', 'contributor', 'type', 'scope'], 
-											colWidths: [10, 50, 50, 30, 25, 15]
+											head: ['id', 'name', 'file', 'contributor', 'cost', 'type', 'scope'], 
+											colWidths: [10, 50, 50, 30, 15, 25, 15]
 										});
 				var saveParams;
 				for(var index = 0; index < resources.length; index++ ) {
@@ -457,6 +457,7 @@ program
 									saveParams.name, 
 									resources[index].fileName, 
 									resources[index].contributor,
+									resources[index].cost,
 									resources[index].resourceType,
 									resources[index].scopeType
 								]);
@@ -483,20 +484,20 @@ program
 });
 
 program
-.command('resource_publish <resource_file> <unique_name> [type] [scope]')
-.description('Publish a resource file. type: DOCKERFILE, CI_CONFIG, TERRAFORM, GENERIC; scope: public or private[default].' )
-.action(function(resource_file, unique_name, type, scope){
-	harbormaster.registerResource(resource_file, unique_name, type, scope)
+.command('resource_publish <resource_file> <unique_name> <type> [cost] [scope]')
+.description('Publish a resource file. type: DOCKERFILE, CI_CONFIG, TERRAFORM, GENERIC; cost: defaults to $0.00; scope: public or private[default].' )
+.action(function(resource_file, unique_name, type, cost, scope){
+	harbormaster.registerResource(resource_file, unique_name, type, cost, scope)
 		.then(function(data) {
 			console.log(data);
 		}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
-    console.log('Example to publish a resource as private:');
+    console.log('Example to publish a resource as private at a cost of $1.00 USD:');
     console.log('');
-    console.log('  $ harbormaster resource_publish ./some_path/Dockerfile myFirstDockerFile DOCKERFILE ');
+    console.log('  $ harbormaster resource_publish ./some_path/Dockerfile myFirstDockerFile DOCKERFILE 1.00');
     console.log('');
-    console.log('Example to publish a CI Config file as public:');
+    console.log('Example to publish a CI Config file as public @ no cost:');
     console.log('');
     console.log('  $ harbormaster resource_publish ./some_path/config.yml myFirstCircleCIConfigYAML CI_CONFIG public');
     console.log('');
@@ -571,7 +572,7 @@ program
 });
 
 ////////////////////////////////////////////////////
-// app related options
+// project related options
 ////////////////////////////////////////////////////
 
 program
