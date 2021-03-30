@@ -1,6 +1,6 @@
 {
   "name": "harbormaster-cli",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Harbormaster CLI, generate fully functional webapps, serverless or RESTful APIs. Choose from available community tech stacks and models, or use, and optinally contribute your own.",
   "main": "index.js",
   "directories": {
