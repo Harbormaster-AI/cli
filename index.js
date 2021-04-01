@@ -81,6 +81,27 @@ program
 ////////////////////////////////////////////////////
 // model related options
 ////////////////////////////////////////////////////
+program
+.command('model_types_supported')
+.description('List of supported model types.')
+.action(function(scope, options){
+	console.log( "Supported Model Types:" );
+	console.log( "-- Formatted Text Files - JSON(.json), YAML(.yaml, .yml)" );
+	console.log( "-- Model Files - XMI(.xmi), UML(.uml), Eclipse Modeling Framework(.eore or .emf)" );
+	console.log( "-- Database Schema - SQL Script(.sql)" );
+	console.log( "-- Java Archive Files - JAR(.jar), EAR(.ear)" );
+	console.log( "-- Java Source Files - GIT(.git)" );
+	console.log( "" );
+	console.log( "#" );
+	console.log( "# NOTE: If using SQL script, make sure the file name is prefixed with the table name." );
+	console.log( "# For example, classic-model.sql references a CREATE TABLE statement on the name classic." );
+	console.log( "#" );              
+}).on('--help', function() {
+    console.log('');
+    console.log('Example to display all supported model types:');
+    console.log('');
+    console.log('  $ harbormaster model_types_supported');
+});
 
 program
 .command('model_list [scope]')

@@ -1,20 +1,20 @@
 gitParams:
     - name:          git_test_ASPNETCore
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    ASPNETCore
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_LambdaNoSQL
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    LambdaNoSQL
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_Lambda
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    Lambda
       tag:           latest
@@ -35,42 +35,42 @@ gitParams:
       host:          bitbucket.org
 
     - name:          git_test_GoogleFunctions
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    GoogleFunctions
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_SparkMicroWeb
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    SparkMicroWeb
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_SpringCore
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    SpringCore
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_SpringMongoDB
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    SpringMongoDB
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_Strut2NoSQL
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    Strut2NoSQL
       tag:           latest
       host:          bitbucket.org
 
     - name:          git_test_Struts2
-      username:      realmethods-public
+      username:      Harbormaster-public
       password:      6969Cutlass!!
       repository:    Struts2
       tag:           latest
