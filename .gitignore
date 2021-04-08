@@ -1,5 +1,6 @@
 node_modules/
 .svn/
+dirs
 .project
 *.bat
 samples/yamls/project.as.code/*.yml
