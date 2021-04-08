@@ -33,7 +33,7 @@ program
 		'If using a Harbormaster Community instance, the Host Url takes the form http://<host_name>:<port>. ' +
 		'The Url is easiest verified in your browser.')
 .action(async function(token, hostUrl){
-	console.log( chalk.blue(
+	console.log( chalk.black(
 		    figlet.textSync('Harbormaster', { horizontalLayout: 'default', verticalLayout: "default" })
 		)
 	);
