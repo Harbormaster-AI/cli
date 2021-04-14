@@ -4,6 +4,7 @@ dirs
 .project
 *.bat
 *.zip/
+sample/techstacks/
 samples/yamls/backup/*.yml
 samples/codesandbox/
 samples/account.json
