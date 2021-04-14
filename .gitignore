@@ -3,7 +3,7 @@ node_modules/
 dirs
 .project
 *.bat
-samples/yamls/project.as.code/*.yml
+*.zip/
 samples/yamls/backup/*.yml
 samples/codesandbox/
 samples/account.json
