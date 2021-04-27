@@ -88,7 +88,7 @@ project:
             platform: circleci    # options:  codeship, circleci, jfrog.pipelines
                                   #           jenkins, azure, aws, gitlab, 
                                   #           bitbucket, github
-            #AES key: 474KlMLItly26VT2V5E02xWEYNODaJ2VDA7HMdSR6cI=                          
+            #AES key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                          
                                    # codeship project key; ex: XKyy2IDcSptIIvMY8KLMVMcxVs+ZK6AyNu1B4Wu1DPY=
 
 #
@@ -96,8 +96,8 @@ project:
 #
         git:            
             name:        git_test_go 
-            username:    complexmathguy
-            password:    00Corvette!!
+            username:    xxxxxxxxx
+            password:    xxxxxxxxx
             repository:  myapp
             tag:         latest
             host:        github.com            
@@ -107,9 +107,9 @@ project:
 #
         go:
            appPort:        8088
-           dbType:         mysql #"mysql,postgres,sqlite,sqlserver
+           dbType:         mysql #options: mysql,postgres,sqlite,sqlserver
            dbUserName:     root
-           dbPassword:     6969Cutlass!!00Corvette!!
+           dbPassword:     letmein2
            dbName:         appDB
            dbHost:         127.0.0.1
            dbPort:         3306
