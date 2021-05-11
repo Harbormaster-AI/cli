@@ -14,7 +14,7 @@
 			"methods":[]},
 		{"name":"Game","parentName":"","packageName":"",
 			"attributes":[
-				{"name":"frames","type":"java.lang.Integer",
+				{"name":"frames","type":"Integer",
 					"visibility":"protected","primarykey":false,
 					"defaultValue":"0"}],
 			"associations":[
@@ -23,7 +23,7 @@
 			"methods":[]},
 		{"name":"Lane","parentName":"","packageName":"",
 			"attributes":[
-				{"name":"number","type":"java.lang.Integer","visibility":"protected","primarykey":false,"defaultValue":"new java.lang.Integer(\"0\")"}],
+				{"name":"number","type":"Integer","visibility":"protected","primarykey":false,"defaultValue":"\"0\""}],
 			"associations":[],
 			"methods":[]},
 		{"name":"League","parentName":"","packageName":"",
@@ -41,15 +41,16 @@
 		{"name":"Player","parentName":"","packageName":"",
 				"attributes":[
 					{"name":"name","type":"String","visibility":"protected","primarykey":false,"defaultValue":""},
-					{"name":"dateOfBirth","type":"java.util.Date","visibility":"protected","primarykey":false,"defaultValue":""},
-					{"name":"height","type":"java.lang.Double","visibility":"protected","primarykey":false,"defaultValue":"new java.lang.Double(\"0.0\")"},
-					{"name":"isProfessional","type":"java.lang.Boolean","visibility":"protected","primarykey":false,"defaultValue":"new java.lang.Boolean(\"false\")"}],
+					{"name":"dateOfBirth","type":"Date","visibility":"protected","primarykey":false,"defaultValue":""},
+					{"name":"height","type":"Double","visibility":"protected","primarykey":false,"defaultValue":"\"0.0\""},
+					{"name":"isProfessional","type":"Boolean","visibility":"protected","primarykey":false,"defaultValue":"\"false\""}],
 				"associations":[],
 				"methods":[]},
 		{"name":"Tournament","parentName":"","packageName":"",
 			"attributes":[
 				{"name":"name","type":"String","visibility":"protected","primarykey":false,"defaultValue":""},
-				{"name":"Type","type":"TournamentType","visibility":"protected","primarykey":false,"defaultValue":"TournamentType.getDefaultValue()"},					{"name":"tournamentId","type":"Long","visibility":"protected","primarykey":true,"defaultValue":"null"}],
+				{"name":"Type","type":"TournamentType","visibility":"protected","primarykey":false,"defaultValue":"TournamentType.getDefaultValue()"},					
+				{"name":"tournamentId","type":"Long","visibility":"protected","primarykey":true,"defaultValue":"null"}],
 			"associations":[
 				{"name":"Matchups","type":"Matchup","multiplicity":"OneToMany"}],
 			"methods":[]}
@@ -59,8 +60,8 @@
 	"enums":[
 		{"name":"TournamentType",
 			"attributes":[
-				{"name":"Pro","type":"String","visibility":"protected","primarykey":false,"defaultValue":"\"0\""},
-				{"name":"Amateur","type":"String","visibility":"protected","primarykey":false,"defaultValue":"\"1\""}]
+				{"name":"Pro","type":"int","visibility":"protected","primarykey":false,"defaultValue":"0"},
+				{"name":"Amateur","type":"int","visibility":"protected","primarykey":false,"defaultValue":"1"}]
 		}
 	]
 }
