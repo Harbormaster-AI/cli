@@ -15,7 +15,8 @@
 
 project:
     name: Apollo GraphQL Demo
-    description: Sample Apollog GraphQL project    
+    description: Sample Apollog GraphQL project
+     
     techstack:
        name:                Apollo      
                                       # To see the list of available tech stacks on a Harbormaster instance using command:
@@ -135,7 +136,7 @@ project:
 #
         artifact-repo:
             inUse:              false
-            type:				jfrog                  # options: nexus, jfrog
+            type:               jfrog                  # options: nexus, jfrog
             userName:           xxxxxxxx
             password:           xxxxxxxx
             email:              xxxx.xxxxxx@xxxxxxx.com

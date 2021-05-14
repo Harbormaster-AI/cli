@@ -14,12 +14,13 @@
 project:
     name: AWS Lambda NoSQL Demo
     description: Sample AWS Lambda Serverless using MongoDB project
+    
     techstack:
        name:              LambdaNoSQL      # To see the list of available tech stacks on a Harbormaster instance using command:
                                            #     harbormaster_cli stack_list --output pretty
 
     model:
-        name:             ./samples/models/company-model.yaml
+        name:             bowling-league-Sprint-1
                           # options:     Unique name of an existing model, a URL to a model file or Git repo, 
                           #                or full/relative path to a model file.
                           #
@@ -74,7 +75,7 @@ project:
             password:    xxxxxxxxxxxx
             repository:  xxxxxxxxx
             tag:         xxxxxxxxx
-            host:		 bitbucket.org            
+            host:        bitbucket.org            
 
 #
 # HashiCorp Terraform parameters
