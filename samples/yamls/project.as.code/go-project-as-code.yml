@@ -20,7 +20,7 @@ project:
                           #     harbormaster_cli stack_list --output pretty
 
     model:
-        name:             ./samples/models/company-model.yaml
+        name:             bowling-league-Sprint-1
                           # options:     Unique name of an existing model, a URL to a model file or Git repo, 
                           #                or full/relative path to a model file.
                           #
