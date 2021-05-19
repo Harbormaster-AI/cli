@@ -15,7 +15,7 @@ project:
     name: Angular11 Project
     description: Sample Angular11 project
     techstack:
-        name:             Angular8 MongoDB  
+        name:             Angular11 MongoDB  
                           
                           # To see the list of available tech stacks on a Harbormaster instance use command:
                           #     harbormaster_cli stack_list --output pretty
