@@ -597,20 +597,31 @@ program
 ////////////////////////////////////////////////////
 program
 .command('project_generate <yaml_file>')
-.description('Generates a project using the directives of a YAML file.')
+.description('Generates a project using the directives of a Project-as-Code YAML file.')
+.option('-x, --extended [value]', 'Show extended generation results.  Helpful for debugging. true/false default:false')
 .option('-g, --gitFile [value]', 'Git settings in YAML file, overrides appOptionsFile setting in the generation YAML file')
 .option('-o, --optionsFile [value]', 'Project options in JSON file, overrides gitParams setting in the generation YAML file')
 .option('-m, --modelIdentifier [value]', 'Either a model file or the id of a previously used/registered model, overrides modelId setting in the generation YAML file')
 .action(function(yaml_file, options){
-	
+
 	var gitFile = options.gitFile == undefined ? null : options.gitFile; 
 	var optionsFile = options.optionsFile == undefined ? null : options.optionsFile;
 	var modelIdentifier = options.modelIdentifier == undefined ? null : options.modelIdentifier;
-		
+	var extendedResults = options.extended == undefined ? "false" : options.extended;
+	
 	harbormaster.generateProject(yaml_file, gitFile, optionsFile, modelIdentifier)
 		.then(function(data){
-			console.log(data);
-	}).catch(err => console.log(err)); 
+			
+			if ( extendedResults === "true" )
+				console.log( "extendedMessage - " + data.extendedMessage );
+			
+			// regardless, rebuild without the 
+			console.log("processingMessage: " + data.processingMessage);
+			console.log("result: " + data.result);
+			console.log("resultCode: " + data.resultCode);
+			console.log("successes: " + data.success);
+						  
+	}).catch(err => console.log('err')); 
 }).on('--help', function() {
     console.log('');
     console.log('');
