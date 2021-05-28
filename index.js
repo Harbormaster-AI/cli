@@ -51,7 +51,7 @@ program
 
 	harbormaster.authenticate(theToken, hostUrl)
 			.then(function(result) {
-				console.log( result );
+				console.log( result.processingMessage );
 			}).catch(err => console.log(err));
 });
 
