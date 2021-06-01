@@ -114,15 +114,14 @@ program
 			var models = JSON.parse(data.result);
 			if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 				const tbl 		= new Table({
-											head: ['id', 'name', 'description', 'file', 'contributor', 'type', 'scope'], 
-											colWidths: [10, 20, 30, 25, 25, 15, 15]
+											head: ['name', 'description', 'file', 'contributor', 'type', 'scope'], 
+											colWidths: [20, 30, 25, 25, 15, 15]
 										});
 				var saveParams;
 				for(var index = 0; index < models.length; index++ ) {
 					saveParams = JSON.parse(models[index].saveParams);
 						tbl.push( 
 								[
-									models[index].id, 
 									saveParams.name,
 									saveParams.description, 
 									models[index].fileName, 
@@ -291,7 +290,6 @@ program
 				saveParams = JSON.parse(pkgs[index].saveParams);
 				tbl.push( 	
 							[
-//								pkgs[index].id, 
 								saveParams.name, 
 								pkgs[index].version,
 								pkgs[index].contributor,
@@ -466,15 +464,14 @@ program
 			var resources = JSON.parse(data.result);
 			if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 				const tbl 		= new Table({
-											head: ['id', 'name', 'file', 'contributor', 'cost', 'type', 'scope'], 
-											colWidths: [10, 50, 50, 30, 15, 25, 15]
+											head: ['name', 'file', 'contributor', 'cost', 'type', 'scope'], 
+											colWidths: [15, 40, 40, 30, 15, 15]
 										});
 				var saveParams;
 				for(var index = 0; index < resources.length; index++ ) {
 					saveParams = JSON.parse(resources[index].saveParams);
 						tbl.push( 
 								[
-									resources[index].id, 
 									saveParams.name, 
 									resources[index].fileName, 
 									resources[index].contributor,
@@ -520,7 +517,7 @@ program
     console.log('');
     console.log('Example to publish a CI Config file as public @ no cost:');
     console.log('');
-    console.log('  $ harbormaster resource_publish ./some_path/config.yml myFirstCircleCIConfigYAML CI_CONFIG public');
+    console.log('  $ harbormaster resource_publish ./some_path/config.yml myFirstCircleCIConfigYAML CI_CONFIG public 0.0');
     console.log('');
     
 });
@@ -715,8 +712,8 @@ program
 		var archives = JSON.parse(data.result);
 		if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
     		const table 		= new Table({
-    									head: ['id', 'name', 'date-time', 'contributor', 'scope'], 
-    									colWidths: [10, 30, 30, 30, 20]
+    									head: ['name', 'date-time', 'contributor', 'scope'], 
+    									colWidths: [30, 30, 30, 20]
     								});
     		var saveParams;
     		var name;
@@ -727,7 +724,6 @@ program
     				name = "";
     			table.push( 
     						[
-    							archives[index].id, 
     							name, 
     							archives[index].dateTime,
     							archives[index].contributor,
