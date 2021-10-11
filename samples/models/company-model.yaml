@@ -1,4 +1,4 @@
-entitiesww:
+entities:
     - name: "Company"
       data:
           - name: "name"
