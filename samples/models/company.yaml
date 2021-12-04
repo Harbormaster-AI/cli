@@ -1,0 +1,151 @@
+entities:
+    - name: "Company"
+    - root: "true"
+      data:
+          - name: "name"
+            validate: "true"
+          - name: "type"
+            type: "CompanyType"
+          - name: "industry"
+            type: "Industry"
+          - name: "establishedOn"
+            type: "Date"
+          - name: "revenue"
+            validate: "false"
+      relations:
+          - name: "divisions"
+            type: "Division"
+            multiplicity: "OneToMany"
+          - name: "boardMembers"
+            type: "Employee"
+            multiplicity: "OneToMany"
+          - name: "address"
+            type: "Address"
+            multiplicity: "OneToOne"
+          - name: "billingAddress"
+            type: "Address"
+            multiplicity: "OneToOne"
+    - name: "Division"
+      data:
+          - name: "name"
+      relations:
+          - name: "head"
+            type: "Employee"
+            multiplicity: OneToOne"
+          - name: "departments"
+            type: "Department"
+            multiplicity: "OneToMany"
+
+    - name: "Department"
+      data:
+          - name: "name"
+      relations:
+          - name: "head"
+            type: "Employee"
+            multiplicity: OneToOne"
+          - name: "employees"
+            type: "Employee"
+            multiplicity: "OneToMany"
+    - name: "Employee"
+      data:
+          - name: "firstName"
+          - name: "lastName"              
+          - name: "type"
+            type: "EmploymentType"
+
+enums:
+    - name: "CompanyType"
+      data:
+          - name: "S_Corp"
+          - name: "LLC"
+          - name: "C_Corp"
+    - name: "EmploymentType"
+      data:
+          - name: "Manager"
+          - name: "Board_Member"
+          - name: "Team_Lead"
+          - name: "Consultant"
+          - name: "Vice_President"
+          - name: "Sr_Mananager"
+          - name: "Director"
+          - name: "Engineer"
+    - name: "Industry"
+      data:
+          - name: "Bank"
+          - name: "Insurance"
+          - name: "Manufacturer"
+          - name: "Technology"
+          - name: "Health"
+          - name: "Financial"
+
+valueObjects:
+    - name: "Address"
+      data:
+          - name: "street"
+          - name: "city"
+          - name: "state"
+          - name: "zipCode"
+            type: "String"
+
+sagas: 
+    - name: "CompanySaga"
+      data:
+          - name: "sagaId"
+            type: "Long"
+      handlers:
+          - name: "name"
+            affliate: "Company"
+            associationProperty : "companyId"
+            
+messages:
+      commands:
+          - componentName: "CompanyAdvanced"
+            affiliate: "Division"
+            affiliateData: "employeeId"
+            creationPolicy: "Always"
+            handlers: 
+              - name: "StartCompany"
+              - name: "CloseCompany"
+              - name: "TradeCompany"
+      queries:
+          - componentName: "CompanyHandling"
+            affiliate: "Company"
+            handlers:
+              - name: "findByName"
+                queryName: "findCompanyByName"
+                type: "Normal"
+                generateStubQueryHandler: "true"
+                generateStubEventHandler: "true"
+                inputArgs:
+                  - name: "name"
+                    type: "String"
+                returnValue:
+                  - entityType: "Company"
+                  - singleValue: "true"
+              - name: "findCompaniesByIndustry"
+                type: "ScatterGather"
+                scatterGatherTimeOut: "10"
+                scatterGatherTimeUnit: "seconds"
+                inputArgs:
+                  - name: "industry"
+                    type: "Industry"
+                returnValue:
+                  - entityType: "Company"
+                  - singleValue: "false"
+              - name: "findByType"
+                queryName: "findCompaniesByType"
+                type: "Subscription"
+                generateStubQueryHandler: "true"
+                generateStubEventHandler: "true"
+                inputArgs:
+                  - name: "type"
+                    type: "CompanyType"
+                returnValue:
+                  - entityType: "Company"
+                  - singleValue: "false"
+      events:
+          - componentName: "CompanyHandling"
+            handlers: 
+              - name: "NonCrudEventForACompany"
+              - name: "NonCrudEventForBCompany"
+              - name: "NonCrudEventForCCompany"
