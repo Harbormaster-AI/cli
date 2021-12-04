@@ -180,10 +180,9 @@ program
 	var array;
 	if ( javaRootPackageName != undefined && javaRootPackageName.length > 0 )
 	    array = javaRootPackageName.split(",")
-	    
 	harbormaster.registerModel(model_file, name, scope, array, primaryKeyPattern)
 		.then(function(data) {
-			console.log(data);
+			console.log("model publishing complete");
 		}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
