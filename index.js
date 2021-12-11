@@ -29,8 +29,8 @@ program
 program
 .command('init [token] [hostUrl]')
 .description('Must run first to initialize Harbormaster. If you do not provide a token, you will be prompted for one.  ' + 
-		'If the hostUrl is not provided, your service request will be redirected to the HarborMaster SaaS Instance. ' +
-		'If using a Harbormaster Community instance, the Host Url takes the form http://<host_name>:<port>. ' +
+		'If the hostUrl is not provided, localhost:8080 will be assumed. ' +
+		'The Host Url takes the form http://<host_name>:<port>. ' +
 		'The Url is easiest verified in your browser.')
 .action(async function(token, hostUrl){
 	console.log( chalk.black(
@@ -47,6 +47,8 @@ program
 		theToken = input.tokenInput;
 		if ( input.hostUrl != null && input.hostUrl != undefined && input.hostUrl.length != 0 )
 			hostUrl = input.hostUrl + '/service';
+		else
+			hostUrl = "localhost:8080" + '/service';
 	}
 
 	harbormaster.authenticate(theToken, hostUrl)
@@ -463,8 +465,8 @@ program
 			var resources = JSON.parse(data.result);
 			if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 				const tbl 		= new Table({
-											head: ['name', 'file', 'contributor', 'cost', 'type', 'scope'], 
-											colWidths: [15, 40, 40, 30, 15, 15]
+											head: ['name', 'file', 'contributor', 'type', 'scope'], 
+											colWidths: [15, 50, 50, 20, 20]
 										});
 				var saveParams;
 				for(var index = 0; index < resources.length; index++ ) {
@@ -474,7 +476,7 @@ program
 									saveParams.name, 
 									resources[index].fileName, 
 									resources[index].contributor,
-									resources[index].cost,
+//									resources[index].cost,
 									resources[index].resourceType,
 									resources[index].scopeType
 								]);
@@ -501,10 +503,11 @@ program
 });
 
 program
-.command('resource_publish <resource_file> <unique_name> <type> [cost] [scope]')
-.description('Publish a resource file. type: DOCKERFILE, CI_CONFIG, TERRAFORM, GENERIC; cost: defaults to $0.00; scope: public or private[default].' )
-.action(function(resource_file, unique_name, type, cost, scope){
-	harbormaster.registerResource(resource_file, unique_name, type, cost, scope)
+.command('resource_publish <resource_file> <unique_name> <type> [scope]')
+//.command('resource_publish <resource_file> <unique_name> <type> [cost] [scope]')
+.description('Publish a resource file. type: DOCKERFILE, CI_CONFIG, TERRAFORM, GENERIC; scope: public or private[default].' )
+.action(function(resource_file, unique_name, type, /*cost,*/ scope){
+	harbormaster.registerResource(resource_file, unique_name, type, 0.0/*cost*/, scope)
 		.then(function(data) {
 			console.log(data);
 		}).catch(err => console.log(err));
