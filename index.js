@@ -283,7 +283,7 @@ program
 		var pkgs = JSON.parse(data.result);
 		if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 			const tbl 		= new Table({
-										head: [ 'name','version', 'contributor', 'scope', 'type', 'status'], 
+										head: [ 'name','version', 'contributor', 'scope', 'type', 'status'],
 										colWidths: [35, 5, 30, 15, 15, 15]
 									});
 			var saveParams;
@@ -295,7 +295,7 @@ program
 								pkgs[index].version,
 								pkgs[index].contributor,
 								pkgs[index].scope,
-								pkgs[index].type, 
+								pkgs[index].productLine,
 								pkgs[index].status
 							] );
 			}

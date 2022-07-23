@@ -31,6 +31,7 @@
     "config": "^3.3.6",
     "configstore": "^4.0.0",
     "figlet": "^1.5.2",
+    "harbormaster-ai": "^0.2.12",
     "harbormaster-api": "^0.1.13",
     "inquirer": "^6.5.2",
     "js-yaml": "^3.13.1",
