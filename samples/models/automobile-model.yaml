@@ -1,0 +1,185 @@
+entities:
+    - name: "Chassis"
+      data:
+          - name: "name"
+          - name: "serialNum"
+          - name: "type"
+            type: "ChassisType"
+      relations:
+          - name: "plant"
+            type: "Plant"
+            multiplicity: "OneToOne"
+      aliases:
+          - createCommandAlias: "createChassisCommand"
+            createEventAlias: "createChassisEvent"
+            updateCommandAlias: "refreshChassisCommand"
+            updateEventAlias: "refreshedChassisEvent"
+            deleteCommandAlias: "closeChassisCommand"
+            deleteEventAlias: "closedChassisEvent"
+      mappedValues:
+
+    - name: "Body"
+      data:
+          - name: "name"
+      relations:
+          - name: "plant"
+            type: "Plant"
+            multiplicity: "OneToOne"
+      aliases:
+          - createCommandAlias: "createBodyCommand"
+            createEventAlias: "createBodyEvent"
+            updateCommandAlias: "refreshBodyCommand"
+            updateEventAlias: "refreshedBodyEvent"
+            deleteCommandAlias: "closeBodyCommand"
+            deleteEventAlias: "closedBodyEvent"
+      mappedValues:
+
+    - name: "Engine"
+      data:
+          - name: "name"
+          - name: "serialNum"
+          - name: "type"
+            type: "EngineType"
+      relations:
+          - name: "plant"
+            type: "Plant"
+            multiplicity: "OneToOne"
+      aliases:
+          - createCommandAlias: "createEngineCommand"
+            createEventAlias: "createEngineEvent"
+            updateCommandAlias: "refreshEngineCommand"
+            updateEventAlias: "refreshedEngineEvent"
+            deleteCommandAlias: "closeEngineCommand"
+            deleteEventAlias: "closedEngineEvent"
+      mappedValues:
+
+    - name: "Transmission"
+      data:
+          - name: "name"
+          - name: "serialNum"
+          - name: "type"
+            type: "TransmissionType"
+      relations:
+          - name: "plant"
+            type: "Plant"
+            multiplicity: "OneToOne"
+      aliases:
+          - createCommandAlias: "createTransmissionCommand"
+            createEventAlias: "createTransmissionEvent"
+            updateCommandAlias: "refreshTransmissionCommand"
+            updateEventAlias: "refreshedTransmissionEvent"
+            deleteCommandAlias: "closeTransmissionCommand"
+            deleteEventAlias: "closedTransmissionEvent"
+      mappedValues:
+
+    - name: "Braking"
+      data:
+          - name: "serialNum"
+          - name: "name"  
+          - name: "type"
+            type: "BrakingType"
+      relations:
+          - name: "plant"
+            type: "Plant"
+            multiplicity: "OneToOne"       
+      aliases:
+          - createCommandAlias: "createBrakingCommand"
+            createEventAlias: "createBrakingEvent"
+            updateCommandAlias: "refreshBrakingCommand"
+            updateEventAlias: "refreshedBrakingEvent"
+            deleteCommandAlias: "closeBrakingCommand"
+            deleteEventAlias: "closedBrakingEvent"                           
+      mappedValues:
+      
+    - name: "Interior"
+      data:
+          - name: "serialNum"
+          - name: "name"              
+      relations:
+          - name: "plant"
+            type: "Plant"
+            multiplicity: "OneToOne"
+      aliases:
+          - createCommandAlias: "createInteriorCommand"
+            createEventAlias: "createInteriorEvent"
+            updateCommandAlias: "refreshInteriorCommand"
+            updateEventAlias: "refreshedInteriorEvent"
+            deleteCommandAlias: "closeInteriorCommand"
+            deleteEventAlias: "closedInteriorEvent"                           
+      mappedValues:
+
+enums:
+    - name: "ChassisType"
+      data:
+          - name: "ShortPassenger"
+          - name: "LongPassenger"
+          - name: "SUV"
+          - name: "Truck"
+
+    - name: "EngineType"
+      data:
+          - name: "Four_Cylinder"
+          - name: "Six_Cylinder"
+          - name: "Eight_Cylinder"
+
+    - name: "BrakingType"
+      data:
+          - name: "Standard"
+          - name: "ABS"
+
+    - name: "TransmissionType"
+      data:
+          - name: "Automatic"
+          - name: "Manual"
+
+valueObjects:
+    - name: Plant
+      data:
+         - name: "plantNo"
+         - name: "street"
+         - name: "city"
+         - name: "state"
+         - name: "zipCode"
+           type: "String"            
+            
+messages:
+      commands:
+      queries:
+          - componentName: "ChassisHandling"
+            affiliate: "Chassis"
+            handlers:
+              - name: "findByNameLike"
+                queryName: "findByNameLike"
+                type: "Normal"
+                generateStubQueryHandler: "true"
+                generateStubEventHandler: "true"
+                inputArgs:
+                  - name: "name"
+                    type: "String"
+                returnValue:
+                  - type: "Chassis"
+                    singleValue: "true"            
+              - name: "findBySerialNum"
+                queryName: "findBySerialNum"
+                type: "Normal"
+                generateStubQueryHandler: "true"
+                generateStubEventHandler: "true"
+                inputArgs:
+                  - name: "serialNum"
+                    type: "String"
+                returnValue:
+                  - type: "Chassis"
+                    singleValue: "true"
+              - name: "findByType"
+                queryName: "findByType"
+                type: "Normal"
+                generateStubQueryHandler: "true"
+                generateStubEventHandler: "true"
+                inputArgs:
+                  - name: "type"
+                    type: "ChassisType"
+                returnValue:
+                  - type: "Chassis"
+                    singleValue: "false"
+      events:
+            
