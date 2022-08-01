@@ -48,7 +48,7 @@ program
 		if ( input.hostUrl != null && input.hostUrl != undefined && input.hostUrl.length != 0 )
 			hostUrl = input.hostUrl + '/service';
 		else
-			hostUrl = "localhost:8080" + '/service';
+			hostUrl = 'http://localhost:8080/harbormaster/service';
 	}
 
 	harbormaster.authenticate(theToken, hostUrl)

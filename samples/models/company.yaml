@@ -1,17 +1,14 @@
 entities:
     - name: "Company"
-    - root: "true"
       data:
           - name: "name"
-            validate: "true"
           - name: "type"
             type: "CompanyType"
           - name: "industry"
             type: "Industry"
           - name: "establishedOn"
-            type: "Date"
           - name: "revenue"
-            validate: "false"
+            type: "Double"
       relations:
           - name: "divisions"
             type: "Division"
@@ -19,12 +16,24 @@ entities:
           - name: "boardMembers"
             type: "Employee"
             multiplicity: "OneToMany"
+            aliases:
+            - addToCommandAlias: "promoteToBoardMemberCommand"
+              addToEventAlias: "promotedToBoardMemberEvent"
+              removeFromCommandAlias: "demoteFromBoardMemberCommand"
+              removeFromEventAlias: "demomotedFromBoardMemberCommand"
           - name: "address"
             type: "Address"
             multiplicity: "OneToOne"
           - name: "billingAddress"
             type: "Address"
             multiplicity: "OneToOne"
+      aliases:
+          - createCommandAlias: "createCompanyCommand"
+            createEventAlias: "createdCompanyEvent"
+            updateCommandAlias: "refreshCompanyCommand"
+            updateEventAlias: "refreshedCompanyEvent"
+            deleteCommandAlias: "closeCompanyCommand"
+            deleteEventAlias: "closedCompanyEvent"
     - name: "Division"
       data:
           - name: "name"
@@ -32,10 +41,14 @@ entities:
           - name: "head"
             type: "Employee"
             multiplicity: OneToOne"
+            aliases:
+            - assignToCommandAlias: "promoteToDivisionHeadCommand"
+              assignToEventAlias: "promotedToDivisionHeadEvent"
+              unAssignFromCommandAlias: "demoteFromDivisionHeadCommand"
+              unAssignFromEventAlias: "demomotedFromDivisionHeadCommand"            
           - name: "departments"
             type: "Department"
             multiplicity: "OneToMany"
-
     - name: "Department"
       data:
           - name: "name"
@@ -86,16 +99,6 @@ valueObjects:
           - name: "state"
           - name: "zipCode"
             type: "String"
-
-sagas: 
-    - name: "CompanySaga"
-      data:
-          - name: "sagaId"
-            type: "Long"
-      handlers:
-          - name: "name"
-            affliate: "Company"
-            associationProperty : "companyId"
             
 messages:
       commands:
@@ -120,32 +123,33 @@ messages:
                   - name: "name"
                     type: "String"
                 returnValue:
-                  - entityType: "Company"
-                  - singleValue: "true"
+                  - type: "Company"
+                    singleValue: "true"
               - name: "findCompaniesByIndustry"
-                type: "ScatterGather"
+                type: "Normal"
                 scatterGatherTimeOut: "10"
                 scatterGatherTimeUnit: "seconds"
                 inputArgs:
                   - name: "industry"
                     type: "Industry"
                 returnValue:
-                  - entityType: "Company"
-                  - singleValue: "false"
+                  - type: "Company"
+                    singleValue: "false"
               - name: "findByType"
                 queryName: "findCompaniesByType"
-                type: "Subscription"
+                type: "Normal"
                 generateStubQueryHandler: "true"
                 generateStubEventHandler: "true"
                 inputArgs:
                   - name: "type"
                     type: "CompanyType"
                 returnValue:
-                  - entityType: "Company"
-                  - singleValue: "false"
+                  - type: "Company"
+                    singleValue: "false"
       events:
-          - componentName: "CompanyHandling"
-            handlers: 
-              - name: "NonCrudEventForACompany"
-              - name: "NonCrudEventForBCompany"
-              - name: "NonCrudEventForCCompany"
+          - componentName: "CompanyWideNotification"
+            affiliate: "Company" #must exist in entity declaration
+            data: "INTRINSICS_ONLY" #ALL, INTRINSICS_ONLY, ASSOCIATIONS_ONLY or comma delim list of attributes and/or role names as defined within Entity
+            emitterType: CompanyNotification #if provided, will create a data class by the same name, a subscriber class and emit the current instance of the affiliate
+            persistent: true #true/false forces the affilate to be saved (one of the attributes must be the Id...if null will cause an insert, otherwise an update
+            
