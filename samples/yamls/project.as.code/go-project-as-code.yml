@@ -15,12 +15,12 @@ project:
     name: Golang Demo
     description: Sample Golang project
     techstack:
-        name:             .go.tech.stack                          
+        name:             Golang
                           # To see the list of available tech stacks on a Harbormaster instance use command:
                           #     harbormaster_cli stack_list --output pretty
 
     model:
-        name:             bowling-league-Sprint-1
+        name:             bowling-league
                           # options:     Unique name of an existing model, a URL to a model file or Git repo, 
                           #                or full/relative path to a model file.
                           #

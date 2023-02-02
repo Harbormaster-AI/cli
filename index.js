@@ -635,7 +635,24 @@ program
     console.log('');
 });
 
-/*
+program
+.command('project_save <yaml_file> <project_name>')
+.description('Saves a project as a Project-as-Code YAML file.')
+.action(function(yaml_file, project_name){
+	harbormaster.saveProject(yaml_file, project_name)
+		.then(function(data){
+			console.log(data);
+	}).catch(err => console.log('err'));
+}).on('--help', function() {
+    console.log('');
+    console.log('');
+    console.log('Example to save an project via a Project-as-Code YAML file:');
+    console.log('');
+    console.log('  $ harbormaster project_save ./sample.yamls/trading.system.project.as.code.yml');
+    console.log('');
+    console.log('');
+});
+
 program
 .command('project_download <name> <output_file_path>')
 .description('Download a project.  Only owned or public projects can be downloaded.' )
@@ -706,7 +723,7 @@ program
 
 program
 .command('project_list [scope]')
-.description('List previously generated project that have been archive. Scope: public, private, community. Empty returns all.')
+.description('List previously generated project that have been published. Scope: public, private, community. Empty returns all.')
 .option('-o, --output [type]', '[json] or pretty for pretty print')
 .action(function(scope, options){
 	harbormaster.listProject(scope)
@@ -758,7 +775,7 @@ program
     console.log('  $ harbormaster project_list community -o pretty');
     
 });
-*/
+
 
 ////////////////////////////////////////////////////
 // app archive related options
